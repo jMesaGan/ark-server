@@ -1,0 +1,29 @@
+services:
+  server:
+    restart: always
+    container_name: ark_server
+    image: hermsi/ark-server:latest
+    platform: linux/amd64
+    volumes:
+      - ${HOME}/ark-server/data:/app
+      - ${HOME}/ark-server/backups:/home/steam/ARK-Backups
+    environment:
+      - SESSION_NAME=${SESSION_NAME}
+      - SERVER_MAP=${SERVER_MAP}
+      - SERVER_PASSWORD=${SERVER_PASSWORD}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - MAX_PLAYERS=${MAX_PLAYERS}
+      - UPDATE_ON_START=${UPDATE_ON_START}
+      - BACKUP_ON_STOP=${BACKUP_ON_STOP}
+      - PRE_UPDATE_BACKUP=${PRE_UPDATE_BACKUP}
+      - WARN_ON_STOP=${WARN_ON_STOP}
+      - ENABLE_CROSSPLAY=${ENABLE_CROSSPLAY}
+      - DISABLE_BATTLEYE=${DISABLE_BATTLEYE}
+      - GAME_MOD_IDS=${GAME_MOD_IDS}
+    ports:
+      - "7777:7777/udp"
+      - "7778:7778/udp"
+      - "27020:27020/tcp"
+      - "27015:27015/udp"
+    networks:
+      - default

@@ -1,0 +1,9 @@
+# Secret config — never commit real passwords
+.env
+
+# Server data and backups (too large for git)
+data/
+backups/
+
+# Logs
+*.log

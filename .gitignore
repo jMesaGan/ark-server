@@ -7,3 +7,9 @@ backups/
 
 # Logs
 *.log
+
+# arkmanager override (local only)
+arkmanager.cfg
+
+# Claude memory
+.claude/

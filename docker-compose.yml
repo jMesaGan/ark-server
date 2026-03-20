@@ -3,10 +3,9 @@ services:
     restart: always
     container_name: ark_server
     image: hermsi/ark-server:latest
-    platform: linux/amd64
     volumes:
-      - ${HOME}/ark-server/data:/app
-      - ${HOME}/ark-server/backups:/home/steam/ARK-Backups
+      - ./data:/app
+      - ./backups:/home/steam/ARK-Backups
     environment:
       - SESSION_NAME=${SESSION_NAME}
       - SERVER_MAP=${SERVER_MAP}
